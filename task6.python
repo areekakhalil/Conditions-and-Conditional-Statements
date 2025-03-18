@@ -1,0 +1,104 @@
+# --------------->Question no 1 <--------------------
+def get_grade(score):
+    if score >= 90 and score <= 100:
+        return "A"
+    elif score >= 80 and score < 90:
+        return "B"
+    elif score >= 70 and score < 80:
+        return "C"
+    elif score >= 60 and score < 70:
+        return "D"
+    elif score < 60:
+        return "F"
+    else:
+        return "Invalid score"  
+
+
+print(get_grade(95))  # Output: "A"
+print(get_grade(49))  # Output: "F"
+
+# ----------------->Question no 2 <--------------
+def cost_of_project(engraving, solid_gold):
+   
+    units = len(engraving)
+    
+    if solid_gold:
+        base = 100
+        cost_per_unit = 10
+    else:
+        base = 50
+        cost_per_unit = 7
+    
+    # Calculate the total cost
+    cost = base + (units * cost_per_unit)
+    return cost
+print(cost_of_project("Keep rocking", True)) 
+print(cost_of_project("Rise in love ", False))             
+
+# ------------------->Question no 3 <-----------------------
+def get_water_bill(num_gallons):
+    if num_gallons <= 10000:
+        price_per_1000 = 4
+    elif num_gallons <= 25000:
+        price_per_1000 = 5
+    elif num_gallons <= 35000:
+        price_per_1000 = 6
+    else:
+        price_per_1000 = 9
+    
+    # Calculate the bill based on the number of gallons used
+    bill = (num_gallons / 1000) * price_per_1000
+    
+    return bill
+print(get_water_bill(12000))  # Output: 60.0
+print(get_water_bill(30000))  # Output: 180.0
+print(get_water_bill(8000))   # Output: 32.0
+print(get_water_bill(40000))  # Output: 360.0
+
+#--------------------->Question no:4 <---------------------
+def get_phone_bill(data_gb):
+    base_cost = 100
+    included_gb = 15  # GB
+    extra_rate = 0.10  # $ per MB
+
+    if data_gb <= included_gb:
+        return base_cost
+    else:
+        excess_gb = data_gb - included_gb
+        excess_mb = excess_gb * 1000
+        extra_cost = excess_mb * extra_rate
+        total_cost = base_cost + extra_cost
+        return total_cost
+
+print(get_phone_bill(10))    # Output: 100
+print(get_phone_bill(15.1))  # Output: 110
+print(get_phone_bill(20))    # Output: 200
+print(get_phone_bill(15))    # Output: 100
+
+# ------------------>Question no 5 <-----------------
+# Assuming the necessary imports are already done
+from learntools.intro_to_programming.ex4q5 import excess_sugar, excess_saturated_fat, excess_trans_fat, excess_sodium, excess_calories
+
+def get_labels(food_type, serving_size, calories_per_serving, saturated_fat_g, trans_fat_g, sodium_mg, sugars_g):
+    if excess_sugar(sugars_g, calories_per_serving):
+        print("EXCESO AZÚCARES / EXCESS SUGAR")
+    if excess_saturated_fat(saturated_fat_g, calories_per_serving):
+        print("EXCESO GRASAS SATURADAS / EXCESS SATURATED FAT")
+    if excess_trans_fat(trans_fat_g, calories_per_serving):
+        print("EXCESO GRASAS TRANS / EXCESS TRANS FAT")
+    if excess_sodium(calories_per_serving, sodium_mg):
+        print("EXCESO SODIO / EXCESS SODIUM")
+    if excess_calories(food_type, calories_per_serving, serving_size):
+        print("EXCESO CALORÍAS / EXCESS CALORIES")
+
+# Nutritional values for the cereal
+food_type = "solid"
+serving_size = 30  # grams
+calories_per_serving = 120  # calories
+saturated_fat_g = 1  # grams
+trans_fat_g = 0  # grams
+sodium_mg = 200  # mg
+sugars_g = 10  # grams
+
+# Call the function with the cereal's nutritional values
+get_labels(food_type, serving_size, calories_per_serving, saturated_fat_g, trans_fat_g, sodium_mg, sugars_g)
